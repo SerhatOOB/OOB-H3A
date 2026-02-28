@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOB x H3A | Manuel Winback Haute Performance</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&family=Space+Mono&display=swap');
+
+        :root {
+            --oob-orange: #ff7900;
+            --oob-black: #000000;
+            --oob-blue: #2b308b;
+            --bg-gray: #f4f4f4;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Outfit', sans-serif; background: #fff; color: var(--oob-black); display: flex; }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            width: 320px;
+            height: 100vh;
+            background: var(--oob-black);
+            padding: 50px 30px;
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-section { margin-bottom: 60px; }
+        .logo-main { font-size: 3rem; font-weight: 900; line-height: 1; letter-spacing: -2px; position: relative; }
+        .logo-main span { color: var(--oob-blue); position: absolute; top: -10px; right: -35px; }
+        .slogan { font-size: 0.75rem; color: #ccc; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px; }
+
+        .nav-link {
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 700;
+            transition: 0.3s;
+            color: #666;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+        }
+        .nav-link:hover { color: white; background: rgba(255,255,255,0.05); }
+        .nav-link.active { background: var(--oob-orange); color: var(--oob-black); }
+
+        /* Main Content */
+        main { margin-left: 320px; padding: 80px 100px; width: 100%; max-width: 1400px; }
+
+        .slide { display: none; animation: fadeIn 0.4s ease; }
+        .slide.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        h1 { font-size: 4rem; font-weight: 900; line-height: 0.95; margin-bottom: 20px; letter-spacing: -3px; }
+        .category { color: var(--oob-orange); font-weight: 800; text-transform: uppercase; letter-spacing: 3px; display: block; margin-bottom: 30px; }
+
+        /* Cards & UI Elements */
+        .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; margin-top: 40px; }
+        .card { background: var(--bg-gray); padding: 40px; border-radius: 4px; border-left: 6px solid var(--oob-black); }
+        .card h3 { font-size: 1.5rem; margin-bottom: 15px; text-transform: uppercase; }
+
+        .script-hero { background: #fff7ef; border-left: 8px solid var(--oob-orange); padding: 40px; margin: 40px 0; border-radius: 0 12px 12px 0; }
+        .script-hero p { font-size: 1.3rem; font-style: italic; line-height: 1.5; color: #222; }
+
+        .logic-table { width: 100%; border-collapse: collapse; margin-top: 40px; }
+        .logic-table th { text-align: left; padding: 15px; font-size: 0.75rem; color: #999; text-transform: uppercase; border-bottom: 2px solid var(--oob-black); }
+        .logic-table td { padding: 30px 15px; border-bottom: 1px solid #eee; vertical-align: top; }
+        .objection-label { font-weight: 900; color: var(--oob-orange); font-size: 1.2rem; display: block; margin-bottom: 10px; }
+
+        .step-box { display: flex; align-items: flex-start; gap: 30px; margin-bottom: 30px; background: #fff; padding: 30px; border: 1px solid #eee; transition: 0.3s; }
+        .step-box:hover { border-color: var(--oob-orange); box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .step-num { background: var(--oob-black); color: white; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; font-weight: 900; border-radius: 4px; flex-shrink: 0; }
+
+        .tech-tag { background: var(--oob-blue); color: white; padding: 4px 12px; border-radius: 4px; font-family: 'Space Mono'; font-size: 0.7rem; display: inline-block; margin-bottom: 15px; }
+
+    </style>
+</head>
+<body>
+
+    <nav class="sidebar">
+        <div class="logo-section">
+            <div class="logo-main">oob<span>↗</span></div>
+            <div class="slogan">Votre succès, notre expertise.</div>
+        </div>
+        
+        <div class="nav-link active" onclick="showSlide(0)">01. Vision Winback</div>
+        <div class="nav-link" onclick="showSlide(1)">02. Script de Précision</div>
+        <div class="nav-link" onclick="showSlide(2)">03. Ripostes de Guerre</div>
+        <div class="nav-link" onclick="showSlide(3)">04. La Triade de Validation</div>
+        <div class="nav-link" onclick="showSlide(4)">05. Arsenal Tech 2026</div>
+    </nav>
+
+    <main>
+        <div class="slide active">
+            <span class="category">Stratégie Offensive</span>
+            <h1>L'Excellence Orange PRO.</h1>
+            <p style="font-size: 1.5rem; color: #444; margin-top: 20px; max-width: 900px;">
+                Vous ciblez les déçus de SFR, Bouygues et Free. Votre mission : réinstaller la <strong>souveraineté numérique</strong> chez les PME locales avec la puissance d'Orange et la proximité d'OOB.
+            </p>
+
+            <div class="grid">
+                <div class="card">
+                    <h3>Continuité Maximale</h3>
+                    <p>Avec le déploiement du <strong>Wi-Fi 7</strong> et les menaces Cyber, Orange possède l'infrastructure la plus robuste du marché. OOB est le bras armé pour ramener cette excellence opérationnelle chez vos clients.</p>
+                </div>
+                <div class="card">
+                    <h3>Fin de l'Anonymat</h3>
+                    <p>Le plus grand défaut des autres ? Vous n'êtes qu'un numéro de dossier. Chez OOB, le client a un nom, un visage et un <strong>interlocuteur direct</strong> joignable sans passer par un serveur vocal.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <span class="category">L'Approche Hamza</span>
+            <h1>Casser le barrage.</h1>
+            
+            <div class="script-hero">
+                <p>
+                    "Bonjour [Nom du gérant], <strong>HAMZA pour OOB</strong>, expert certifié Orange Business, Orange PRO.<br><br>
+                    Je vous contacte car Orange a revu sa stratégie d'accompagnement pour les professionnels de votre zone. L'idée est de sortir de la gestion anonyme par téléphone ou de l'attente en boutique que vous connaissez peut-être actuellement.<br><br>
+                    Nous mandatons désormais un <strong>interlocuteur dédié</strong> pour valider sur place la performance de vos outils (Wi-Fi 7, Cyber) et s'assurer que vous bénéficiez des dernières optimisations de coûts."
+                </p>
+            </div>
+
+            <div class="grid">
+                <div class="card" style="border-color: var(--oob-orange);">
+                    <h3>Le Verrouillage</h3>
+                    <p>"Mon ingénieur commercial est dans votre secteur <strong>Mardi</strong> ou <strong>Vendredi</strong>. On bloque 20 minutes pour faire votre point de situation ?"</p>
+                </div>
+                <div class="card">
+                    <h3>Pourquoi HAMZA ?</h3>
+                    <p>En vous présentant par votre prénom pour OOB, vous humanisez immédiatement l'appel. Vous n'êtes pas "un service", vous êtes une personne au service d'une autre.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <span class="category">Maîtrise du Rebond</span>
+            <h1>Désamorcer pour Convaincre.</h1>
+            
+            <table class="logic-table">
+                <thead>
+                    <tr>
+                        <th width="35%">Objection</th>
+                        <th>Réponse Stratégique HAMZA / H3A</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="objection-label">"Je n'ai pas le temps."</span></td>
+                        <td>"Je comprends, vous êtes en plein rush. C'est justement pour vous en faire gagner que je vous appelle. On traite en 20 min ce qui vous prendrait des heures avec une plateforme anonyme. On sécurise votre temps de demain."</td>
+                    </tr>
+                    <tr>
+                        <td><span class="objection-label">"C'est moins cher ailleurs."</span></td>
+                        <td>"On trouve toujours moins cher, jusqu'à la première panne. La question est : combien vous coûte une heure de coupure ? Chez OOB, vous avez <strong>mon numéro et celui de l'expert</strong>. Fini les personnes anonymes que vous n'entendrez plus après avoir raccroché."</td>
+                    </tr>
+                    <tr>
+                        <td><span class="objection-label">"Envoyez-moi un mail."</span></td>
+                        <td>"Pour vous envoyer un mail sérieux, on doit analyser votre débit réel et votre sécurité sur place. OOB ne fait pas d'offres catalogue, on fait du sur-mesure pour que chaque euro investi soit utile."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="slide">
+            <span class="category">Protocole Qualité INES</span>
+            <h1>La Triade de Validation.</h1>
+            <p style="margin-bottom: 40px; opacity: 0.7;">Un rendez-vous n'est validé que si ces 3 piliers sont cochés :</p>
+
+            <div class="step-box">
+                <div class="step-num">1</div>
+                <div>
+                    <h4 style="font-size: 1.4rem; margin-bottom: 5px;">Détecter un besoin (Le Point Noir)</h4>
+                    <p>Le prospect doit exprimer une frustration : Wi-Fi instable, manque de conseil, facture illisible ou crainte cyber. <strong>Pas de douleur = Pas de RDV.</strong></p>
+                </div>
+            </div>
+
+            <div class="step-box" style="border-left: 8px solid var(--oob-orange);">
+                <div class="step-num">2</div>
+                <div>
+                    <h4 style="font-size: 1.4rem; margin-bottom: 5px;">Détecter le budget</h4>
+                    <p>On ne cherche pas à vendre plus cher, on cherche à <strong>mieux investir</strong>. Validez qu'il est prêt à comparer son coût actuel avec une solution Orange PRO premium.</p>
+                </div>
+            </div>
+
+            <div class="step-box">
+                <div class="step-num">3</div>
+                <div>
+                    <h4 style="font-size: 1.4rem; margin-bottom: 5px;">Confirmation de Volonté</h4>
+                    <p>Le client doit dire explicitement : <em>"Oui, je suis prêt à revenir chez Orange si vous me prouvez que l'accompagnement OOB est supérieur."</em></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide">
+            <span class="category">Arguments de Choc</span>
+            <h1>L'Avantage Technologique.</h1>
+            
+            <div class="grid">
+                <div class="card">
+                    <span class="tech-tag">EXCLUSIF 2026</span>
+                    <h3>WI-FI 7 Pro</h3>
+                    <p>Ne proposez pas le Wi-Fi de tout le monde. Le Wi-Fi 7 d'Orange, c'est la stabilité totale pour la visio, le cloud et l'IA. Vos concurrents sont encore sur des technos de 2022.</p>
+                </div>
+                <div class="card">
+                    <span class="tech-tag">HUMAN FIRST</span>
+                    <h3>Le 06 de l'Expert</h3>
+                    <p>L'argument n°1 pour le Winback : "Vous avez mon numéro, vous avez celui de l'expert. Fini les plateformes avec des personnes anonymes que vous n'entendrez plus après avoir raccroché."</p>
+                </div>
+                <div class="card">
+                    <span class="tech-tag">CYBER-SÉCURITÉ</span>
+                    <h3>Protection Native</h3>
+                    <p>Orange ne se contente pas de donner internet, il nettoie le flux. Les attaques sont bloquées avant même d'arriver sur le réseau du client.</p>
+                </div>
+                <div class="card">
+                    <span class="tech-tag">CONCEPTION LOCALE</span>
+                    <h3>Audit OOB</h3>
+                    <p>Nous sommes des techniciens du terrain, pas des vendeurs de papier. Chaque solution est dessinée après avoir vu les locaux du client.</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        function showSlide(n) {
+            document.querySelectorAll('.slide').forEach(s => s.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            document.querySelectorAll('.slide')[n].classList.add('active');
+            document.querySelectorAll('.nav-link')[n].classList.add('active');
+            window.scrollTo(0,0);
+        }
+    </script>
+</body>
+</html>
